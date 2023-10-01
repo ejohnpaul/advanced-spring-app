@@ -22,15 +22,3 @@ spec:
         ports:
         - containerPort: 8080  
 
-kind: Service   
-apiVersion: v1  
-metadata:
-  name: appsvc    
-spec:
-  selector:
-    app: web  
-  type: NodePort 
-  ports:
-  - targetPort: 8080
-    nodePort: #31000 # 30000 - 32676   
-    port: 80 
