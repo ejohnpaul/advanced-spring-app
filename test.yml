@@ -18,7 +18,7 @@ spec:
     spec: 
       containers:
       - name: webapp
-        image: jpizzletech/advanced-spring-app:2
+        image: jpizzletech/advanced-spring-app:latest
         ports:
         - containerPort: 8080  
 
