@@ -1,7 +1,7 @@
 node{
 	def mavenHome = tool name: 'maven3.9.2'
 	stage('SCM clone'){
-		git credentialsId: 'Git credentials', url: 'https://github.com/IamJpizzle/spring-boot-docker'
+		git credentialsId: 'Git credentials', url: 'https://github.com/ejohnpaul/advanced-spring-app'
 	}
 	stage('MavenBuild'){
 		sh "${mavenHome}/bin/mvn clean package"
@@ -13,14 +13,14 @@ node{
 		//sh "${mavenHome}/bin/mvn deploy"
 	}
 	stage('BuildDockerImage'){
-		sh "docker build -t jpizzletech/spring-boot-mongo:1 ."
+		sh "docker build -t jpizzletech/advanced-spring-app ."
 	}
 	stage('PushImagetoReg'){
 		withCredentials([string(credentialsId: 'DockerHubCredentials', variable: 'DockerHubCredentials')]) {
     sh "docker login -u jpizzletech -p ${DockerHubCredentials}"
 }
 		
-		sh "docker push jpizzletech/spring-boot-mongo:1"
+		sh "docker push jpizzletech/advanced-spring-app"
 	}
 	stage('RemoveDockerImages'){
 		sh 'docker rmi $( docker images -q)'
