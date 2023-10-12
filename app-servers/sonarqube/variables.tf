@@ -5,5 +5,5 @@ variable "domainName" {
 
 variable "my_key" {
   type    = string
-  default = "class31key"
+  default = "jptechkey"
 }

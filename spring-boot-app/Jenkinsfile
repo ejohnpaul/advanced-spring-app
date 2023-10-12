@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'jpizzletech/docker-agent.v1'
+      image 'jpizzletech/docker-agent:v1'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh 'advanced-spring-app && mvn clean package'
+        sh 'cd spring-boot-app && mvn clean package'
       }
     }
 	/*stage('Static Code Analysis') {
@@ -33,7 +33,7 @@ pipeline {
       environment {
         DOCKER_IMAGE = "jpizzletech/advanced-spring-app:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "ci-cd-with-argocd/spring-boot-app/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('docker-credential')
+        REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
       steps {
         script {
