@@ -1,5 +1,5 @@
 [0m[1mdata.aws_ami.amzlinux2: Reading...[0m[0m
-[0m[1mdata.aws_ami.amzlinux2: Read complete after 0s [id=ami-0d887a308369b6881][0m
+[0m[1mdata.aws_ami.amzlinux2: Read complete after 1s [id=ami-0d887a308369b6881][0m
 
 Terraform used the selected providers to generate the following execution
 plan. Resource actions are indicated with the following symbols:
