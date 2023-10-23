@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: springappcontainer
-        image: jpizzletech/advanced-spring-app:26
+        image: jpizzletech/advanced-spring-app:replaceImageTag
         ports:
         - containerPort: 8080
         env:
