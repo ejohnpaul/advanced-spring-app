@@ -1,33 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springapp
+  name: spring-boot-app
+  labels:
+    app: spring-boot-app
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: springapp
+      app: spring-boot-app
   template:
     metadata:
       labels:
-        app: springapp
+        app: spring-boot-app
     spec:
       containers:
-      - name: springappcontainer
-        image: jpizzletech/advanced-spring-app:replaceImageTag
+      - name: spring-boot-app
+        image:  jpizzletech/advanced-spring-app:replaceImageTag
         ports:
         - containerPort: 8080
-        env:
-        - name: MONGO_DB_HOSTNAME
-          value:  mongosvc
-        - name: MONGO_DB_USERNAME
-          value: devdb
-        - name: MONGO_DB_PASSWORD
-          value: devdb@123
-        resources:
-          requests:
-            cpu: 200m
-            memory: 256Mi
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
